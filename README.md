@@ -286,7 +286,7 @@ from ..helpers import (  # should instead use absolute import path.
 ```
 
 
-## Variable Names
+## Naming Conventions
 
 
 ### Looping over dictionaries
@@ -301,12 +301,6 @@ for key, value in thing.items():
 
 ### Looping over iterables
 
-You **should** use the name of the *thing* you are looping over when possible
-
-```python
-for user in users_to_process:
-    ...
-```
 
 When writing generic loops, you **should** use the name ``value``.
 
@@ -327,19 +321,26 @@ for key, value in thing.items():
 
 ### Confusing Plurals
 
-Avoid easy to confuse singulars and plurals in the same context.  When the two
-names only differ by a single letter, they are both easy to transpose or
-incorrectly auto-complete.
-
+For short names, the simple plural form is preferred.
 
 ```python
-# bad
 for user in users:
     ...
+```
 
 
-# good
-for user in users_to_process:
+For longer names, avoid using plural names that only differ by one letter.
+
+```python
+for lockfile_path in lockfile_paths:
+    ...
+```
+
+When using longer names, consider adding a prefix or suffix to help
+differentiate the variable names.
+
+```python
+for lockfile_path in lockfile_paths_to_process:
     ...
 ```
 
